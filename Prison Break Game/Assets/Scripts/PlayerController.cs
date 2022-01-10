@@ -6,62 +6,82 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject Player;
     public Animator anim;
+    public Rigidbody2D rb;
 
-    bool isDownPressed = false;
-    bool isDownLeftPressed = false;
-    bool isDownRightPressed = false;
-    bool isLeftPressed = false;
-    bool isUpLeftPressed = false;
-    bool isUpPressed = false;
-    bool isUpRightPressed = false;
-    bool isRightPressed = false;
+    Vector2 movement;
+
+
     // Start is called before the first frame update
     void Start()
     {
 
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        float deltaX = Input.GetAxisRaw("Horizontal");
+
+        float deltaY = Input.GetAxisRaw("Vertical");
+
+        movement = new Vector2(deltaX, deltaY);
+
+        rb.MovePosition(rb.position + movement * 2 * Time.fixedDeltaTime);
+
         if (Input.GetKey(KeyCode.S))
         {
-            isDownPressed = true;
-            isDownLeftPressed = false;
-            isDownRightPressed = false;
-            isLeftPressed = false;
-            isUpLeftPressed = false;
-            isUpPressed = false;
-            isUpRightPressed = false;
-            isRightPressed = false;
+            anim.SetBool("isDownPressed", true);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", false);
+            anim.SetBool("isLeftPressed", false);
+            anim.SetBool("isUpLeftPressed", false);
+            anim.SetBool("isUpPressed", false);
+            anim.SetBool("isUpRightPressed", false);
+            anim.SetBool("isRightPressed", false);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            isDownPressed = false;
-            isDownLeftPressed = false;
-            isDownRightPressed = false;
-            isLeftPressed = true;
-            isUpLeftPressed = false;
-            isUpPressed = false;
-            isUpRightPressed = false;
-            isRightPressed = false;
+            anim.SetBool("isDownPressed", false);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", false);
+            anim.SetBool("isLeftPressed", true);
+            anim.SetBool("isUpLeftPressed", false);
+            anim.SetBool("isUpPressed", false);
+            anim.SetBool("isUpRightPressed", false);
+            anim.SetBool("isRightPressed", false);
+        }
+
+
+
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isDownPressed", false);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", false);
+            anim.SetBool("isLeftPressed", false);
+            anim.SetBool("isUpLeftPressed", false);
+            anim.SetBool("isUpPressed", false);
+            anim.SetBool("isUpRightPressed", false);
+            anim.SetBool("isRightPressed", true);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("isDownPressed", false);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", false);
+            anim.SetBool("isLeftPressed", false);
+            anim.SetBool("isUpLeftPressed", false);
+            anim.SetBool("isUpPressed", true);
+            anim.SetBool("isUpRightPressed", false);
+            anim.SetBool("isRightPressed", false);
         }
 
         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-        {
-            isDownPressed = false;
-            isDownLeftPressed = true;
-            isDownRightPressed = false;
-            isLeftPressed = false;
-            isUpLeftPressed = false;
-            isUpPressed = false;
-            isUpRightPressed = false;
-            isRightPressed = false;
-        }
-
-        if (isDownLeftPressed == true)
         {
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", true);
@@ -71,35 +91,45 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isUpPressed", false);
             anim.SetBool("isUpRightPressed", false);
             anim.SetBool("isRightPressed", false);
-
         }
 
-        if (isDownPressed == true)
-            {
-                anim.SetBool("isDownPressed", true);
-                anim.SetBool("isDownLeftPressed", false);
-                anim.SetBool("isDownRightPressed", false);
-                anim.SetBool("isLeftPressed", false);
-                anim.SetBool("isUpLeftPressed", false);
-                anim.SetBool("isUpPressed", false);
-                anim.SetBool("isUpRightPressed", false);
-                anim.SetBool("isRightPressed", false);
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isDownPressed", false);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", true);
+            anim.SetBool("isLeftPressed", false);
+            anim.SetBool("isUpLeftPressed", false);
+            anim.SetBool("isUpPressed", false);
+            anim.SetBool("isUpRightPressed", false);
+            anim.SetBool("isRightPressed", false);
+        }
 
-            }
 
-            if (isLeftPressed == true)
-            {
-                anim.SetBool("isDownPressed", false);
-                anim.SetBool("isDownLeftPressed", false);
-                anim.SetBool("isDownRightPressed", false);
-                anim.SetBool("isLeftPressed", true);
-                anim.SetBool("isUpLeftPressed", false);
-                anim.SetBool("isUpPressed", false);
-                anim.SetBool("isUpRightPressed", false);
-                anim.SetBool("isRightPressed", false);
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isDownPressed", false);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", false);
+            anim.SetBool("isLeftPressed", false);
+            anim.SetBool("isUpLeftPressed", false);
+            anim.SetBool("isUpPressed", false);
+            anim.SetBool("isUpRightPressed", true);
+            anim.SetBool("isRightPressed", false);
+        }
 
-            }
-        
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("isDownPressed", false);
+            anim.SetBool("isDownLeftPressed", false);
+            anim.SetBool("isDownRightPressed", false);
+            anim.SetBool("isLeftPressed", false);
+            anim.SetBool("isUpLeftPressed", true);
+            anim.SetBool("isUpPressed", false);
+            anim.SetBool("isUpRightPressed", false);
+            anim.SetBool("isRightPressed", false);
+        }
+
 
     }
 }
