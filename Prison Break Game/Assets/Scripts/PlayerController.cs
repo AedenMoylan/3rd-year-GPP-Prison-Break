@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
     public Animator anim;
     public Rigidbody2D rb;
+    public RayController rayController;
+    public GameObject bullet;
+    public Rigidbody2D bulletrb;
 
     Vector2 movement;
 
@@ -17,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        rayController = GetComponent<RayController>();
+        bullet = GameObject.FindWithTag("Bullet");
+        bulletrb = GetComponent<Rigidbody2D>();
 
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
@@ -131,6 +137,22 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isUpRightPressed", false);
             anim.SetBool("isRightPressed", false);
         }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            RayController raycont = this.GetComponent<RayController>();
+
+            Vector3 pos = raycont.getMouseClickPos();
+
+            Vector3 bulletDirection = (transform.position - pos) * -1;
+
+            Instantiate(bullet, this.transform.position, this.transform.rotation);
+
+            Vector2 movement = new Vector2(bulletDirection.x, bulletDirection.y);
+
+
+        }
+            bulletrb.MovePosition(bulletrb.position + movement * 2 * Time.fixedDeltaTime);
 
 
     }
