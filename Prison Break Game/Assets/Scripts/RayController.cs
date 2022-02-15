@@ -32,8 +32,6 @@ public class RayController : MonoBehaviour
             //If something was hit, the RaycastHit2D.collider will not be null.
             if (hit.collider != null)
             {
-                Debug.Log(worldPoint);
-                Debug.Log(hit.collider.name);
             }
         }
         return worldPoint;
