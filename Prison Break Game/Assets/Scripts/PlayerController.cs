@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Rigidbody2D bulletrb;
 
+    // between 1 - 8 clockwise with 1 being up
+    private int moveDirection;
     Vector2 movement;
 
 
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
+            moveDirection = 5;
             anim.SetBool("isDownPressed", true);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", false);
@@ -51,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            moveDirection = 7;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", false);
@@ -66,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
+            moveDirection = 3;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", false);
@@ -78,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
+            moveDirection = 1;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", false);
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
         {
+            moveDirection = 6;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", true);
             anim.SetBool("isDownRightPressed", false);
@@ -102,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
+            moveDirection = 4;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", true);
@@ -115,6 +123,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
+            moveDirection = 2;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", false);
@@ -127,6 +136,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
         {
+            moveDirection = 8;
             anim.SetBool("isDownPressed", false);
             anim.SetBool("isDownLeftPressed", false);
             anim.SetBool("isDownRightPressed", false);
@@ -144,5 +154,10 @@ public class PlayerController : MonoBehaviour
             
 
 
+    }
+
+    public int returnMoveDirection()
+    {
+        return moveDirection;
     }
 }
