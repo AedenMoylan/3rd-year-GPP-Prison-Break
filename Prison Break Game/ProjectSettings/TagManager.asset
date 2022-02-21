@@ -15,12 +15,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
+  - Walls
   - Enemy
   - Bullet
-  - Walls
+  - Player
   - Gate
-  - 
+  - Collidable
   - 
   - 
   - 
