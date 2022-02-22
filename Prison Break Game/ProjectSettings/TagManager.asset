@@ -21,8 +21,8 @@ TagManager:
   - Player
   - Gate
   - Collidable
-  - 
-  - 
+  - Door
+  - Key
   - 
   - 
   - 
