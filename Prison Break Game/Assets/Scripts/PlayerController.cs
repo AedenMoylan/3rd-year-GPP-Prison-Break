@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public Button upButton;
     public Button downButton;
 
+    public ParticleSystem muzzle;
+
     // between 1 - 8 clockwise with 1 being up
     private int moveDirection;
     Vector2 movement;
@@ -152,6 +154,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject bullets = Instantiate(bullet, this.transform.position, Quaternion.identity);
+
+            Instantiate(muzzle, transform.position, Quaternion.identity);
 
             bulletsFired++;
         }

@@ -10,6 +10,7 @@ TagManager:
   - GateBlocker
   - NextLevelShape
   - Music
+  - Muzzle
   layers:
   - Default
   - TransparentFX

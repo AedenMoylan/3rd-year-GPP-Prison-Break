@@ -5,12 +5,14 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private GameObject player;
+   
     private Rigidbody2D rb;
     private Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
     {
+
         PlayerController.bulletsFired++;
 
         rb = GetComponent<Rigidbody2D>();
