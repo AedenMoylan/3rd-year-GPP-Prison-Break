@@ -12,9 +12,15 @@ public class KeyController : MonoBehaviour
     private PlayerController pc;
     private Vector2 moveDeviation;
     private GameObject gateBlocker;
+
+    public AudioSource keyGrab;
+
+    private bool hasSoundPlayed = false;
+    //audioData.Play(0);
     // Start is called before the first frame update
     void Start()
     {
+        keyGrab = GetComponent<AudioSource>();
         moveDeviation = new Vector2(0, 0);
         moveDirection = 0;
         isKeyCollected = false;
@@ -29,6 +35,13 @@ public class KeyController : MonoBehaviour
     {
         if (isKeyCollected == true)
         {
+            if (hasSoundPlayed == false)
+            {
+
+               keyGrab.Play();
+                hasSoundPlayed = true;
+            }
+
             gateBlocker.SetActive(false);
             moveDirection = pc.returnMoveDirection();
 
