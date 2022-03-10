@@ -11,6 +11,8 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerController.bulletsFired++;
+
         rb = GetComponent<Rigidbody2D>();
 
         player = GameObject.FindWithTag("Player");
@@ -37,5 +39,10 @@ public class BulletController : MonoBehaviour
     {
         Debug.Log("kill");
         Destroy(this.gameObject);
+
+        if (collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -34,7 +34,9 @@ public class TextFileWriter : MonoBehaviour
     void Start()
     {
         int bullets = PlayerController.bulletsFired;
-        bullets = 5;
+        bullets = bullets / 2;
+
+        Debug.Log("Bullets: " + bullets);
 
         string readPath = Application.dataPath + "/score.txt";
         string path = Application.dataPath + "/score.txt";

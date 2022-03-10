@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Rigidbody2D bulletrb;
 
-    public static int bulletsFired = 5;
+    public static int bulletsFired;
 
     public Button leftButton;
     public Button rightButton;
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     // between 1 - 8 clockwise with 1 being up
     private int moveDirection;
     Vector2 movement;
-
 
     // Start is called before the first frame update
     void Start()
@@ -265,4 +264,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isRightPressed", false);
         
     }
+
+
 }
