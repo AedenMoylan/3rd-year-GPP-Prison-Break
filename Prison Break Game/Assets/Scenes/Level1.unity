@@ -1456,7 +1456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &852669737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3246,6 +3246,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 267985316435446675, guid: 7252b0c7d1b49b04f8b992e86a135241, type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 8993839540217777413, guid: 1d7f5da6f7056e244b1a34ef15f24a95, type: 3}
+    - target: {fileID: 267985316435446675, guid: 7252b0c7d1b49b04f8b992e86a135241, type: 3}
       propertyPath: upButton
       value: 
       objectReference: {fileID: 1444773967}
@@ -3385,6 +3389,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2457376605513941386, guid: 86142dba48acc174491f7eb0d7511804, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457376605513941389, guid: 86142dba48acc174491f7eb0d7511804, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2457376605513941391, guid: 86142dba48acc174491f7eb0d7511804, type: 3}
