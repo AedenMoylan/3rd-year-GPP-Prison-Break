@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,6 +126,10 @@ MonoBehaviour:
   rayController: {fileID: 0}
   bullet: {fileID: 7304810772023126429, guid: a7ae936a333712841baa77d6e9ade466, type: 3}
   bulletrb: {fileID: -8599418432092006959, guid: a7ae936a333712841baa77d6e9ade466, type: 3}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  upButton: {fileID: 0}
+  downButton: {fileID: 0}
 --- !u!50 &267985316435446674
 Rigidbody2D:
   serializedVersion: 4

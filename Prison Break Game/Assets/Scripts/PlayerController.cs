@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Rigidbody2D bulletrb;
 
-    public static int bulletsFired = 0;
+    public static int bulletsFired = 5;
 
     public Button leftButton;
     public Button rightButton;
